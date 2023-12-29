@@ -18,11 +18,16 @@ namespace POS_Management_System
         {
             InitializeComponent();
         }
+
         private void Signup_Load(object sender, EventArgs e)
         {
             RotateImages(pictureBox2);
         }//on load event
 
+        private void Signup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }//formclosing event surely closes components (DO NOT REMOVE)
 
 
 
@@ -67,7 +72,6 @@ namespace POS_Management_System
             Bitmap bitmap2 = (Bitmap)pic2.Image;
             pic2.Image = (Image)(RotateImg(bitmap2, 390.0f));
         }//rotate image method
-
-        
-    }
+   
+    }//Signup
 }

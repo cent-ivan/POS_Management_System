@@ -38,13 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.idNo = new POS_Management_System.round();
-            this.password = new POS_Management_System.round();
             this.label5 = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.password = new POS_Management_System.round();
+            this.idNo = new POS_Management_System.round();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -145,25 +145,6 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "ID NO.";
             // 
-            // idNo
-            // 
-            this.idNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.idNo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idNo.Location = new System.Drawing.Point(56, 188);
-            this.idNo.Name = "idNo";
-            this.idNo.Size = new System.Drawing.Size(651, 47);
-            this.idNo.TabIndex = 11;
-            // 
-            // password
-            // 
-            this.password.BackColor = System.Drawing.SystemColors.Window;
-            this.password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.password.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(56, 315);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(651, 47);
-            this.password.TabIndex = 12;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -227,6 +208,25 @@
             this.panel1.Size = new System.Drawing.Size(758, 569);
             this.panel1.TabIndex = 0;
             // 
+            // password
+            // 
+            this.password.BackColor = System.Drawing.SystemColors.Window;
+            this.password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.password.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(56, 315);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(651, 47);
+            this.password.TabIndex = 12;
+            // 
+            // idNo
+            // 
+            this.idNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idNo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idNo.Location = new System.Drawing.Point(56, 188);
+            this.idNo.Name = "idNo";
+            this.idNo.Size = new System.Drawing.Size(651, 47);
+            this.idNo.TabIndex = 11;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -246,6 +246,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

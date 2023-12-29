@@ -18,14 +18,44 @@ namespace POS_Management_System
         {
             InitializeComponent();
         }
-
+        
         private void Login_Load(object sender, EventArgs e)
         {
+            int row = 0;
+            using (MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password="))
+            {
+                conn.Open();
+                //Checking of existing database
+
+
+                string checkQry = "SHOW DATABASES LIKE '%pos_system_db%';";
+                MySqlCommand cmd = new MySqlCommand(checkQry, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    row++;
+                }
+                reader.Close();//closes the current Reader
+
+                
+                if (row == 0)
+                {
+                    string createDBQry = "CREATE DATABASE pos_system_db;";
+                    MySqlCommand createDB = new MySqlCommand(createDBQry, conn);
+                    int rowsInserted = createDB.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Database already existed");
+                }
+            }
+                
+            
 
 
 
             RotateImages(pictureBox1, pictureBox2, pictureBox3, pictureBox4); //rotates the images passed
-        }//on load event
+        }//on load event and creating of databases and tables
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -39,6 +69,16 @@ namespace POS_Management_System
             signup.ShowDialog();
             Application.Exit();
         }//link sign up event
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }//formclosing event surely closes components (DO NOT REMOVE)
+
+
+
+
+
 
 
         //--Rotates an image----------------------------------------------------------------------------------
@@ -89,8 +129,8 @@ namespace POS_Management_System
             Bitmap bitmap4 = (Bitmap)pic4.Image;
             pic4.Image = (Image)(RotateImg(bitmap4, 30.0f));
         }//rotate image method
-        
-    }
+
+    }//Login
 
     //--Custom Components------------------------------------------------------------------------------------
 
