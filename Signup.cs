@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace POS_Management_System
 {
@@ -34,8 +36,50 @@ namespace POS_Management_System
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+            bool IsRadioChecked = string.IsNullOrEmpty(maleRadio.Text) || string.IsNullOrEmpty(femaleRadio.Text);
+
+            if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(nameTxt.Text) || IsRadioChecked || string.IsNullOrEmpty(roleCombo.Text) || string.IsNullOrEmpty(emailTxt.Text))
+            {
+                MessageBox.Show("Please fill up the boxes", "Notice");
+            }
+            else
+            {
+                MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+                using (conn)
+                {
+                    int rowsInserted = 0;
+
+                    conn.Open();
+                    //Insert profile info
+
+                    string insertQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail) VALUES" +
+                        "(@storeID, @empName, @empSex, @empRole, @empEmail);";
+                    MySqlCommand profInsert = new MySqlCommand(insertQry, conn);
+                    profInsert.Parameters.AddWithValue("@storeID", idNo.Text);
+                    profInsert.Parameters.AddWithValue("@empName", nameTxt.Text);
+
+                    //for radio button sex
+                    if (maleRadio.Checked)
+                    {
+                        profInsert.Parameters.AddWithValue("@empSex", maleRadio.Text);
+                    }
+                    else
+                    {
+                        profInsert.Parameters.AddWithValue("@empSex", femaleRadio.Text);
+                    }
+
+                    profInsert.Parameters.AddWithValue("@empRole", roleCombo.Text);
+                    profInsert.Parameters.AddWithValue("@empEmail", emailTxt.Text);
+                    rowsInserted = profInsert.ExecuteNonQuery();
+
+                    idNo.Clear();
+                    nameTxt.Clear();
+                    roleCombo.Text = "";
+                    emailTxt.Clear();
+                }
+            }//checking if text is empty   
         }//sign up
+
 
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
         {

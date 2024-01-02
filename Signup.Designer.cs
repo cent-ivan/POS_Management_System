@@ -37,7 +37,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.signupButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.roleCombo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.emailTxt = new POS_Management_System.round();
@@ -137,7 +137,7 @@
             this.panel1.Controls.Add(this.femaleRadio);
             this.panel1.Controls.Add(this.maleRadio);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.roleCombo);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.emailTxt);
@@ -152,17 +152,17 @@
             this.panel1.Size = new System.Drawing.Size(758, 694);
             this.panel1.TabIndex = 9;
             // 
-            // comboBox1
+            // roleCombo
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.roleCombo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleCombo.FormattingEnabled = true;
+            this.roleCombo.Items.AddRange(new object[] {
             "EMPLOYEE",
             "ADMIN"});
-            this.comboBox1.Location = new System.Drawing.Point(56, 508);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(332, 39);
-            this.comboBox1.TabIndex = 18;
+            this.roleCombo.Location = new System.Drawing.Point(56, 508);
+            this.roleCombo.Name = "roleCombo";
+            this.roleCombo.Size = new System.Drawing.Size(332, 39);
+            this.roleCombo.TabIndex = 18;
             // 
             // label6
             // 
@@ -330,7 +330,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label2;
         private round emailTxt;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox roleCombo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton femaleRadio;

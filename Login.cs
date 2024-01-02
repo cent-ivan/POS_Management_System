@@ -67,7 +67,6 @@ namespace POS_Management_System
                 }
             }
                 
-            
             RotateImages(pictureBox1, pictureBox2, pictureBox3, pictureBox4); //rotates the images passed
         }//on load event and creating of databases and tables
 
