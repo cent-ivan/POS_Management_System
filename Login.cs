@@ -58,8 +58,7 @@ namespace POS_Management_System
                         "empEmail VARCHAR(50) NOT NULL);";
                         MySqlCommand profTBL = new MySqlCommand(profTBLQry, conn);
                         rowsInserted = profTBL.ExecuteNonQuery();
-                    }//connection for creating tables
-                        
+                    }//connection for creating table 
                 }
                 else
                 {
