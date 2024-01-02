@@ -36,49 +36,62 @@ namespace POS_Management_System
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            bool IsRadioChecked = string.IsNullOrEmpty(maleRadio.Text) || string.IsNullOrEmpty(femaleRadio.Text);
+            try
+            {
+                bool IsRadioChecked = string.IsNullOrEmpty(maleRadio.Text) || string.IsNullOrEmpty(femaleRadio.Text);
 
-            if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(nameTxt.Text) || IsRadioChecked || string.IsNullOrEmpty(roleCombo.Text) || string.IsNullOrEmpty(emailTxt.Text))
-            {
-                MessageBox.Show("Please fill up the boxes", "Notice");
-            }
-            else
-            {
-                MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
-                using (conn)
+                if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(nameTxt.Text) || IsRadioChecked || string.IsNullOrEmpty(roleCombo.Text) || string.IsNullOrEmpty(emailTxt.Text))
                 {
-                    int rowsInserted = 0;
-
-                    conn.Open();
-                    //Insert profile info
-
-                    string insertQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail) VALUES" +
-                        "(@storeID, @empName, @empSex, @empRole, @empEmail);";
-                    MySqlCommand profInsert = new MySqlCommand(insertQry, conn);
-                    profInsert.Parameters.AddWithValue("@storeID", idNo.Text);
-                    profInsert.Parameters.AddWithValue("@empName", nameTxt.Text.ToUpper());
-
-                    //for radio button sex
-                    if (maleRadio.Checked)
-                    {
-                        profInsert.Parameters.AddWithValue("@empSex", maleRadio.Text.ToUpper());
-                    }
-                    else
-                    {
-                        profInsert.Parameters.AddWithValue("@empSex", femaleRadio.Text.ToUpper());
-                    }
-
-                    profInsert.Parameters.AddWithValue("@empRole", roleCombo.Text);
-                    profInsert.Parameters.AddWithValue("@empEmail", emailTxt.Text);
-                    rowsInserted = profInsert.ExecuteNonQuery();
-
-                    idNo.Clear();
-                    nameTxt.Clear();
-                    roleCombo.Text = "";
-                    emailTxt.Clear();
+                    MessageBox.Show("Please fill up the boxes", "Notice");
                 }
-            }//checking if text is empty   
-        }//sign up
+                else
+                {
+                    MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+                    using (conn)
+                    {
+                        int rowsInserted = 0;
+
+                        conn.Open();
+                        //Insert profile info
+
+                        string insertQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail) VALUES" +
+                            "(@storeID, @empName, @empSex, @empRole, @empEmail);";
+                        MySqlCommand profInsert = new MySqlCommand(insertQry, conn);
+                        profInsert.Parameters.AddWithValue("@storeID", idNo.Text);
+                        profInsert.Parameters.AddWithValue("@empName", nameTxt.Text.ToUpper());
+
+                        //for radio button sex
+                        if (maleRadio.Checked)
+                        {
+                            profInsert.Parameters.AddWithValue("@empSex", maleRadio.Text.ToUpper());
+                        }
+                        else if (femaleRadio.Checked)
+                        {
+                            profInsert.Parameters.AddWithValue("@empSex", femaleRadio.Text.ToUpper());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fill up the Sex section", "Notice");
+                        }
+                        profInsert.Parameters.AddWithValue("@empRole", roleCombo.Text);
+                        profInsert.Parameters.AddWithValue("@empEmail", emailTxt.Text);
+                        rowsInserted = profInsert.ExecuteNonQuery();
+
+                        MessageBox.Show("Data Saved!", "Notice");
+
+                        idNo.Clear();
+                        nameTxt.Clear();
+                        roleCombo.Text = "";
+                        emailTxt.Clear();
+                    }
+                }//check if form is not empty
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error [{ex.Number}] \nCheck all of the form for empty entry.", "Notice");
+            }//catches mysql related errors
+                
+        }//sign up event
 
 
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
