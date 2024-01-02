@@ -22,14 +22,16 @@ namespace POS_Management_System
         private void Login_Load(object sender, EventArgs e)
         {
             int row = 0;
-            using (MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password="))
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db"); //for table queries
+
+
+            using (MySqlConnection connCreate = new MySqlConnection("datasource=localhost;port=3306;username=root;password=")) //temp connection
             {
-                conn.Open();
+                connCreate.Open();//temp connection open
                 //Checking of existing database
 
-
                 string checkQry = "SHOW DATABASES LIKE '%pos_system_db%';";
-                MySqlCommand cmd = new MySqlCommand(checkQry, conn);
+                MySqlCommand cmd = new MySqlCommand(checkQry, connCreate);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -37,12 +39,27 @@ namespace POS_Management_System
                 }
                 reader.Close();//closes the current Reader
 
-                
                 if (row == 0)
                 {
+                    int rowsInserted = 0;
+
+                    //Database
                     string createDBQry = "CREATE DATABASE pos_system_db;";
-                    MySqlCommand createDB = new MySqlCommand(createDBQry, conn);
-                    int rowsInserted = createDB.ExecuteNonQuery();
+                    MySqlCommand createDB = new MySqlCommand(createDBQry, connCreate);
+                    rowsInserted = createDB.ExecuteNonQuery();
+
+                    using (conn)
+                    {
+                        conn.Open();
+                        //Tables-------------------------------------------------------------
+
+                        string profTBLQry = "CREATE TABLE profile_tbl(profID INT AUTO_INCREMENT PRIMARY KEY," +
+                        "storeID INT NOT NULL, empName VARCHAR(30) NOT NULL, empSex VARCHAR(7) NOT NULL, empRole VARCHAR(15) NOT NULL, " +
+                        "empEmail VARCHAR(50) NOT NULL);";
+                        MySqlCommand profTBL = new MySqlCommand(profTBLQry, conn);
+                        rowsInserted = profTBL.ExecuteNonQuery();
+                    }//connection for creating tables
+                        
                 }
                 else
                 {
@@ -51,9 +68,6 @@ namespace POS_Management_System
             }
                 
             
-
-
-
             RotateImages(pictureBox1, pictureBox2, pictureBox3, pictureBox4); //rotates the images passed
         }//on load event and creating of databases and tables
 
@@ -74,8 +88,6 @@ namespace POS_Management_System
         {
             System.Windows.Forms.Application.Exit();
         }//formclosing event surely closes components (DO NOT REMOVE)
-
-
 
 
 
@@ -175,5 +187,4 @@ namespace POS_Management_System
         }
     }
 
-    
 }

@@ -24,6 +24,19 @@ namespace POS_Management_System
             RotateImages(pictureBox2);
         }//on load event
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            Application.Exit();
+        }//back button click
+
+        private void signupButton_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+        }//sign up
+
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -72,6 +85,7 @@ namespace POS_Management_System
             Bitmap bitmap2 = (Bitmap)pic2.Image;
             pic2.Image = (Image)(RotateImg(bitmap2, 390.0f));
         }//rotate image method
-   
+
+        
     }//Signup
 }
