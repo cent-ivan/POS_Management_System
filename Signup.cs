@@ -56,16 +56,16 @@ namespace POS_Management_System
                         "(@storeID, @empName, @empSex, @empRole, @empEmail);";
                     MySqlCommand profInsert = new MySqlCommand(insertQry, conn);
                     profInsert.Parameters.AddWithValue("@storeID", idNo.Text);
-                    profInsert.Parameters.AddWithValue("@empName", nameTxt.Text);
+                    profInsert.Parameters.AddWithValue("@empName", nameTxt.Text.ToUpper());
 
                     //for radio button sex
                     if (maleRadio.Checked)
                     {
-                        profInsert.Parameters.AddWithValue("@empSex", maleRadio.Text);
+                        profInsert.Parameters.AddWithValue("@empSex", maleRadio.Text.ToUpper());
                     }
                     else
                     {
-                        profInsert.Parameters.AddWithValue("@empSex", femaleRadio.Text);
+                        profInsert.Parameters.AddWithValue("@empSex", femaleRadio.Text.ToUpper());
                     }
 
                     profInsert.Parameters.AddWithValue("@empRole", roleCombo.Text);
