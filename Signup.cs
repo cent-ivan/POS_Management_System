@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace POS_Management_System
 {
@@ -34,8 +34,64 @@ namespace POS_Management_System
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
-        }//sign up
+            try
+            {
+                bool IsRadioChecked = string.IsNullOrEmpty(maleRadio.Text) || string.IsNullOrEmpty(femaleRadio.Text);
+
+                if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(nameTxt.Text) || IsRadioChecked || string.IsNullOrEmpty(roleCombo.Text) || string.IsNullOrEmpty(emailTxt.Text) || string.IsNullOrEmpty(password.Text))
+                {
+                    MessageBox.Show("Please fill up the boxes", "Notice");
+                }
+                else
+                {
+                    MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+                    using (conn)
+                    {
+                        int rowsInserted = 0;
+
+                        conn.Open();
+                        //Insert profile info
+
+                        string insertQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail, password) VALUES" +
+                            "(@storeID, @empName, @empSex, @empRole, @empEmail, @password);";
+                        MySqlCommand profInsert = new MySqlCommand(insertQry, conn);
+                        profInsert.Parameters.AddWithValue("@storeID", idNo.Text);
+                        profInsert.Parameters.AddWithValue("@empName", nameTxt.Text.ToUpper());
+
+                        //for radio button sex
+                        if (maleRadio.Checked)
+                        {
+                            profInsert.Parameters.AddWithValue("@empSex", maleRadio.Text.ToUpper());
+                        }
+                        else if (femaleRadio.Checked)
+                        {
+                            profInsert.Parameters.AddWithValue("@empSex", femaleRadio.Text.ToUpper());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fill up the Sex section", "Notice");
+                        }
+                        profInsert.Parameters.AddWithValue("@empRole", roleCombo.Text);
+                        profInsert.Parameters.AddWithValue("@empEmail", emailTxt.Text);
+                        profInsert.Parameters.AddWithValue("@password", password.Text);
+                        rowsInserted = profInsert.ExecuteNonQuery();
+
+                        MessageBox.Show("Data Saved!", "Notice");
+
+                        idNo.Clear();
+                        nameTxt.Clear();
+                        roleCombo.Text = "";
+                        emailTxt.Clear();
+                    }
+                }//check if form is not empty
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error [{ex.Number}] \nCheck all of the form for empty entry.", "Notice");
+            }//catches mysql related errors
+                
+        }//sign up event
+
 
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -85,7 +141,5 @@ namespace POS_Management_System
             Bitmap bitmap2 = (Bitmap)pic2.Image;
             pic2.Image = (Image)(RotateImg(bitmap2, 390.0f));
         }//rotate image method
-
-        
     }//Signup
 }
