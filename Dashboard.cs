@@ -19,18 +19,18 @@ namespace POS_Management_System
 
         private void posButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //POS pos = new POS();
-            //pos.ShowDialog();
-            //Application.Exit();
+            this.Hide();
+            POS pos = new POS();
+            pos.ShowDialog();
+            Application.Exit();
         }//pos button
 
         private void invButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //Inventory inv = new Inventory();
-            //inv.ShowDialog();
-            //Application.Exit();
+            this.Hide();
+            Inventory inv = new Inventory();
+            inv.ShowDialog();
+            Application.Exit();
         }//Inventory Button
 
         private void reportButton_Click(object sender, EventArgs e)
