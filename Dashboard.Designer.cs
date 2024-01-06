@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.logoutButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.reportButton = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.invButton = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.posButton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.posButton = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.invButton = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.reportButton = new System.Windows.Forms.Button();
             this.roundPanel3 = new POS_Management_System.RoundPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.totalSoldLabel = new System.Windows.Forms.Label();
@@ -55,11 +55,11 @@
             this.totalSaleLabel = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.roundPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.roundPanel2.SuspendLayout();
@@ -99,15 +99,84 @@
             this.panel1.Size = new System.Drawing.Size(436, 862);
             this.panel1.TabIndex = 1;
             // 
-            // pictureBox1
+            // reportButton
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(182, 99);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.reportButton.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.reportButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportButton.Location = new System.Drawing.Point(119, 498);
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(284, 76);
+            this.reportButton.TabIndex = 14;
+            this.reportButton.Text = "Report";
+            this.reportButton.UseVisualStyleBackColor = false;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(31, 498);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(81, 76);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
+            // invButton
+            // 
+            this.invButton.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.invButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.invButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invButton.Location = new System.Drawing.Point(119, 400);
+            this.invButton.Name = "invButton";
+            this.invButton.Size = new System.Drawing.Size(284, 76);
+            this.invButton.TabIndex = 12;
+            this.invButton.Text = "Inventory";
+            this.invButton.UseVisualStyleBackColor = false;
+            this.invButton.Click += new System.EventHandler(this.invButton_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(31, 400);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(81, 76);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
+            // posButton
+            // 
+            this.posButton.BackColor = System.Drawing.Color.Khaki;
+            this.posButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.posButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.posButton.Location = new System.Drawing.Point(119, 304);
+            this.posButton.Name = "posButton";
+            this.posButton.Size = new System.Drawing.Size(284, 76);
+            this.posButton.TabIndex = 10;
+            this.posButton.Text = "POS";
+            this.posButton.UseVisualStyleBackColor = false;
+            this.posButton.Click += new System.EventHandler(this.posButton_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(31, 304);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(81, 76);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(142, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 45);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Welcome!";
             // 
             // label1
             // 
@@ -119,15 +188,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "User";
             // 
-            // label2
+            // pictureBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(142, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 46);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Welcome!";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(182, 99);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 76);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -148,75 +217,6 @@
             this.label3.Size = new System.Drawing.Size(208, 38);
             this.label3.TabIndex = 8;
             this.label3.Text = "ShoppingMart";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(31, 276);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(81, 76);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // posButton
-            // 
-            this.posButton.BackColor = System.Drawing.Color.Khaki;
-            this.posButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.posButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.posButton.Location = new System.Drawing.Point(119, 276);
-            this.posButton.Name = "posButton";
-            this.posButton.Size = new System.Drawing.Size(284, 76);
-            this.posButton.TabIndex = 10;
-            this.posButton.Text = "POS";
-            this.posButton.UseVisualStyleBackColor = false;
-            this.posButton.Click += new System.EventHandler(this.posButton_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(31, 400);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(81, 76);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
-            // invButton
-            // 
-            this.invButton.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.invButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.invButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invButton.Location = new System.Drawing.Point(119, 400);
-            this.invButton.Name = "invButton";
-            this.invButton.Size = new System.Drawing.Size(284, 76);
-            this.invButton.TabIndex = 12;
-            this.invButton.Text = "Inventory";
-            this.invButton.UseVisualStyleBackColor = false;
-            this.invButton.Click += new System.EventHandler(this.invButton_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(31, 526);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(81, 76);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // reportButton
-            // 
-            this.reportButton.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.reportButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportButton.Location = new System.Drawing.Point(119, 526);
-            this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(284, 76);
-            this.reportButton.TabIndex = 14;
-            this.reportButton.Text = "Report";
-            this.reportButton.UseVisualStyleBackColor = false;
-            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
             // roundPanel3
             // 
@@ -364,11 +364,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.roundPanel3.ResumeLayout(false);
             this.roundPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
