@@ -38,7 +38,7 @@ namespace POS_Management_System
             {
                 bool IsRadioChecked = string.IsNullOrEmpty(maleRadio.Text) || string.IsNullOrEmpty(femaleRadio.Text);
 
-                if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(nameTxt.Text) || IsRadioChecked || string.IsNullOrEmpty(roleCombo.Text) || string.IsNullOrEmpty(emailTxt.Text))
+                if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(nameTxt.Text) || IsRadioChecked || string.IsNullOrEmpty(roleCombo.Text) || string.IsNullOrEmpty(emailTxt.Text) || string.IsNullOrEmpty(password.Text))
                 {
                     MessageBox.Show("Please fill up the boxes", "Notice");
                 }
@@ -52,8 +52,8 @@ namespace POS_Management_System
                         conn.Open();
                         //Insert profile info
 
-                        string insertQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail) VALUES" +
-                            "(@storeID, @empName, @empSex, @empRole, @empEmail);";
+                        string insertQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail, password) VALUES" +
+                            "(@storeID, @empName, @empSex, @empRole, @empEmail, @password);";
                         MySqlCommand profInsert = new MySqlCommand(insertQry, conn);
                         profInsert.Parameters.AddWithValue("@storeID", idNo.Text);
                         profInsert.Parameters.AddWithValue("@empName", nameTxt.Text.ToUpper());
@@ -73,6 +73,7 @@ namespace POS_Management_System
                         }
                         profInsert.Parameters.AddWithValue("@empRole", roleCombo.Text);
                         profInsert.Parameters.AddWithValue("@empEmail", emailTxt.Text);
+                        profInsert.Parameters.AddWithValue("@password", password.Text);
                         rowsInserted = profInsert.ExecuteNonQuery();
 
                         MessageBox.Show("Data Saved!", "Notice");
@@ -140,7 +141,5 @@ namespace POS_Management_System
             Bitmap bitmap2 = (Bitmap)pic2.Image;
             pic2.Image = (Image)(RotateImg(bitmap2, 390.0f));
         }//rotate image method
-
-        
     }//Signup
 }
