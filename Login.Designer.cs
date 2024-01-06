@@ -184,7 +184,7 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Yellow;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(223, 482);
+            this.linkLabel1.Location = new System.Drawing.Point(240, 482);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(95, 25);
             this.linkLabel1.TabIndex = 9;
@@ -215,6 +215,7 @@
             this.password.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.Location = new System.Drawing.Point(56, 315);
             this.password.Name = "password";
+            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(651, 47);
             this.password.TabIndex = 12;
             // 

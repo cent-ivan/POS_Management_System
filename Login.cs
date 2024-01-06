@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 
 namespace POS_Management_System
 {
@@ -55,9 +56,14 @@ namespace POS_Management_System
 
                         string profTBLQry = "CREATE TABLE profile_tbl(profID INT AUTO_INCREMENT PRIMARY KEY," +
                         "storeID INT NOT NULL, empName VARCHAR(30) NOT NULL, empSex VARCHAR(7) NOT NULL, empRole VARCHAR(15) NOT NULL, " +
-                        "empEmail VARCHAR(50) NOT NULL);";
+                        "empEmail VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL);";
                         MySqlCommand profTBL = new MySqlCommand(profTBLQry, conn);
                         rowsInserted = profTBL.ExecuteNonQuery();
+
+                        //Creating index for the storeID for faster retrieval
+                        string profINDEXQry = "CREATE INDEX profID_idx ON profile_tbl (storeID)";
+                        MySqlCommand profINDEX = new MySqlCommand( profINDEXQry, conn);
+                        rowsInserted = profINDEX.ExecuteNonQuery();
                     }//connection for creating table 
                 }
                 else
@@ -71,7 +77,45 @@ namespace POS_Management_System
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrEmpty(idNo.Text) || string.IsNullOrEmpty(password.Text))
+                {
+                    MessageBox.Show("Please fill up the boxes", "Notice");
+                }
+                else
+                {
+                    MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+                    using (conn)
+                    {
+                        conn.Open();
+                        //Check for ID and password
 
+                        string checkQry = "SELECT storeID, password FROM profile_tbl WHERE storeID = @idNo AND password = @password;";
+                        MySqlCommand cmd = new MySqlCommand(checkQry, conn);
+                        cmd.Parameters.AddWithValue("@idNo", idNo.Text);
+                        cmd.Parameters.AddWithValue("@password", password.Text);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            MessageBox.Show("Login Successfully!");
+                            this.Hide();
+                            Dashboard dsh = new Dashboard();
+                            dsh.ShowDialog();
+                            Application.Exit();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect ID Number or Password", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }//checks if form is empty
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error [{ex.Number}] \nCheck all of the form for empty entry.", "Notice");
+            }
         }//login button event
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
