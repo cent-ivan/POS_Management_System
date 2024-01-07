@@ -401,7 +401,7 @@
             this.logoutButton.BackColor = System.Drawing.Color.Red;
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(319, 848);
+            this.logoutButton.Location = new System.Drawing.Point(300, 786);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(94, 26);
             this.logoutButton.TabIndex = 0;
@@ -432,16 +432,16 @@
             // 
             this.txtSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSubTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubTotal.Location = new System.Drawing.Point(219, 214);
+            this.txtSubTotal.Location = new System.Drawing.Point(691, 114);
             this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.Size = new System.Drawing.Size(309, 34);
+            this.txtSubTotal.Size = new System.Drawing.Size(211, 34);
             this.txtSubTotal.TabIndex = 22;
             // 
             // txtQuantity
             // 
             this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(219, 168);
+            this.txtQuantity.Location = new System.Drawing.Point(219, 114);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(309, 34);
             this.txtQuantity.TabIndex = 21;
@@ -450,9 +450,9 @@
             // 
             this.txtUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnit.Location = new System.Drawing.Point(219, 124);
+            this.txtUnit.Location = new System.Drawing.Point(691, 74);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(309, 34);
+            this.txtUnit.Size = new System.Drawing.Size(211, 34);
             this.txtUnit.TabIndex = 20;
             // 
             // txtUPC
@@ -470,14 +470,14 @@
             this.txtDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDes.Location = new System.Drawing.Point(219, 18);
             this.txtDes.Name = "txtDes";
-            this.txtDes.Size = new System.Drawing.Size(606, 34);
+            this.txtDes.Size = new System.Drawing.Size(683, 34);
             this.txtDes.TabIndex = 18;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 217);
+            this.label9.Location = new System.Drawing.Point(556, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(114, 31);
             this.label9.TabIndex = 17;
@@ -487,7 +487,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 171);
+            this.label8.Location = new System.Drawing.Point(14, 114);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 31);
             this.label8.TabIndex = 16;
@@ -507,7 +507,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(20, 127);
+            this.label6.Location = new System.Drawing.Point(556, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 31);
             this.label6.TabIndex = 14;
@@ -538,7 +538,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 1033);
+            this.ClientSize = new System.Drawing.Size(1452, 863);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridCart);
             this.Controls.Add(this.panel1);
