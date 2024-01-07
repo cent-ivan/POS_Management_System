@@ -16,5 +16,29 @@ namespace POS_Management_System
         {
             InitializeComponent();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+        }//Search Button Event
+
+
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to logout?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.ShowDialog();
+                Application.Exit();
+            }
+        }//Log Out Button
+
+        private void POS_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }//formclosing event surely closes components (DO NOT REMOVE)
     }
 }
