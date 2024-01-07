@@ -16,6 +16,11 @@ namespace POS_Management_System
         {
             InitializeComponent();
         }
+        private void POS_Load(object sender, EventArgs e)
+        {
+            string transCode = DateTime.Now.ToString("yyyy-MM"); //Complete
+            transNumber.Text = transCode;
+        }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -23,6 +28,13 @@ namespace POS_Management_System
         }//Search Button Event
 
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard ds = new Dashboard();
+            ds.ShowDialog();
+            Application.Exit();
+        }//Back Button
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
@@ -40,5 +52,6 @@ namespace POS_Management_System
         {
             System.Windows.Forms.Application.Exit();
         }//formclosing event surely closes components (DO NOT REMOVE)
+  
     }
 }

@@ -68,6 +68,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridCart = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -81,11 +83,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.backButton);
             this.panel1.Controls.Add(this.pictureBox9);
             this.panel1.Controls.Add(this.redoButton);
             this.panel1.Controls.Add(this.pictureBox8);
@@ -379,10 +384,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 23);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 25);
+            this.label1.Size = new System.Drawing.Size(181, 31);
             this.label1.TabIndex = 4;
             this.label1.Text = "Transaction No.";
             // 
@@ -390,7 +395,7 @@
             // 
             this.transNumber.AutoSize = true;
             this.transNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transNumber.Location = new System.Drawing.Point(250, 25);
+            this.transNumber.Location = new System.Drawing.Point(271, 26);
             this.transNumber.Name = "transNumber";
             this.transNumber.Size = new System.Drawing.Size(55, 23);
             this.transNumber.TabIndex = 3;
@@ -401,7 +406,7 @@
             this.logoutButton.BackColor = System.Drawing.Color.Red;
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(300, 786);
+            this.logoutButton.Location = new System.Drawing.Point(329, 785);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(94, 26);
             this.logoutButton.TabIndex = 0;
@@ -423,9 +428,9 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(-3, 662);
+            this.panel3.Location = new System.Drawing.Point(-3, 628);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(994, 369);
+            this.panel3.Size = new System.Drawing.Size(994, 403);
             this.panel3.TabIndex = 3;
             // 
             // txtSubTotal
@@ -531,13 +536,37 @@
             this.dataGridCart.Name = "dataGridCart";
             this.dataGridCart.RowHeadersWidth = 51;
             this.dataGridCart.RowTemplate.Height = 24;
-            this.dataGridCart.Size = new System.Drawing.Size(951, 629);
+            this.dataGridCart.Size = new System.Drawing.Size(951, 600);
             this.dataGridCart.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(381, 747);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 20);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Back";
+            // 
+            // backButton
+            // 
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.Location = new System.Drawing.Point(385, 719);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(28, 25);
+            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backButton.TabIndex = 23;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1452, 863);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridCart);
@@ -550,6 +579,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.POS_FormClosing);
+            this.Load += new System.EventHandler(this.POS_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -566,6 +596,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -611,5 +642,7 @@
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.TextBox txtUPC;
         private System.Windows.Forms.TextBox txtDes;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox backButton;
     }
 }
