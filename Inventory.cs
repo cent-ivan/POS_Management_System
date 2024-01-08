@@ -17,6 +17,15 @@ namespace POS_Management_System
             InitializeComponent();
         }
 
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard ds = new Dashboard();
+            ds.ShowDialog();
+            Application.Exit();
+        }//Back button
+
         private void logoutButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to logout?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -28,5 +37,6 @@ namespace POS_Management_System
                 Application.Exit();
             }
         }//Log Out Button
+ 
     }
 }
