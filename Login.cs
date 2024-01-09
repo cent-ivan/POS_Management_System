@@ -58,12 +58,29 @@ namespace POS_Management_System
                         "storeID INT NOT NULL, empName VARCHAR(30) NOT NULL, empSex VARCHAR(7) NOT NULL, empRole VARCHAR(15) NOT NULL, " +
                         "empEmail VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL);";
                         MySqlCommand profTBL = new MySqlCommand(profTBLQry, conn);
-                        rowsInserted = profTBL.ExecuteNonQuery();
+                        rowsInserted = profTBL.ExecuteNonQuery(); //For the profile Table
 
                         //Creating index for the storeID for faster retrieval
                         string profINDEXQry = "CREATE INDEX profID_idx ON profile_tbl (storeID)";
                         MySqlCommand profINDEX = new MySqlCommand( profINDEXQry, conn);
                         rowsInserted = profINDEX.ExecuteNonQuery();
+
+                        string invTBLQry = "CREATE TABLE inventory_tbl(invID INT AUTO_INCREMENT PRIMARY KEY, UPC VARCHAR(20) NOT NULL, " +
+                        "Description VARCHAR(100) NOT NULL, Discount INT NOT NULL, Category VARCHAR(50) NOT NULL, unitPrice DECIMAL(18,2" +
+                        ") NOT NULL, Quantity INT NOT NULL);";
+                        MySqlCommand invTBL = new MySqlCommand(invTBLQry, conn);
+                        rowsInserted = invTBL.ExecuteNonQuery(); //For the Inventory Table
+
+                        string cartTBLQry = "CREATE TABLE cart_tbl(cartID INT AUTO_INCREMENT PRIMARY KEY, UPC VARCHAR(20) NOT NULL, Description VARCHAR(100) NOT NULL, " +
+                        "unitPrice DECIMAL(18,2) NOT NULL, Quantity INT NOT NULL, Discount INT NOT NULL, Subtotal DECIMAL(18,2) NOT NULL, transDate VARCHAR(60) NOT NULL);";
+                        MySqlCommand cartTBL = new MySqlCommand(cartTBLQry, conn);
+                        rowsInserted = cartTBL.ExecuteNonQuery(); //For the Cart table
+
+                        string saleTBLQry = "CREATE TABLE sales_tbl(transID INT AUTO_INCREMENT PRIMARY KEY, Amount DECIMAL(18,2) NOT NULL, " +
+                        "Sale_Date VARCHAR(50) NOT NULL, Items_Sold INT NOT NULL);";
+                        MySqlCommand saleTBL = new MySqlCommand(saleTBLQry, conn);
+                        rowsInserted = saleTBL.ExecuteNonQuery(); //For the Sale table
+
                     }//connection for creating table 
                 }
                 else

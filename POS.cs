@@ -4,43 +4,37 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace POS_Management_System
 {
-    public partial class Dashboard : Form
+    public partial class POS : Form
     {
-        public Dashboard()
+        public POS()
         {
             InitializeComponent();
         }
+        private void POS_Load(object sender, EventArgs e)
+        {
+            string transCode = DateTime.Now.ToString("yyyy-MM"); //Complete
+            transNumber.Text = transCode;
+        }
 
-        private void posButton_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+        }//Search Button Event
+
+
+        private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            POS pos = new POS();
-            pos.ShowDialog();
+            Dashboard ds = new Dashboard();
+            ds.ShowDialog();
             Application.Exit();
-        }//pos button
-
-        private void invButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Inventory inv = new Inventory();
-            inv.ShowDialog();
-            Application.Exit();
-        }//Inventory Button
-
-        private void reportButton_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //Report report = new Report();
-            //report.ShowDialog();
-            //Application.Exit();
-        }//Report Button
-
+        }//Back Button
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
@@ -54,10 +48,10 @@ namespace POS_Management_System
             }
         }//Log Out Button
 
-        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        private void POS_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }//formclosing event surely closes components (DO NOT REMOVE)
-
+  
     }
 }
