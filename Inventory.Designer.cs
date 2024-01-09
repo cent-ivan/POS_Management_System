@@ -29,43 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.logoutButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.backButton = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboCategory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboCategory = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtUPC = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDes = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.combCategory = new System.Windows.Forms.ComboBox();
-            this.txtUnit = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.updateButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtUnit = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.combCategory = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDes = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtUPC = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.invGrid = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.backButton = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.invGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // logoutButton
@@ -98,6 +99,75 @@
             this.panel1.Size = new System.Drawing.Size(1452, 81);
             this.panel1.TabIndex = 2;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(1357, 41);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 20);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Back";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(1081, 19);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(45, 42);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 11;
+            this.pictureBox5.TabStop = false;
+            // 
+            // backButton
+            // 
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.Location = new System.Drawing.Point(1361, 13);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(28, 25);
+            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.backButton.TabIndex = 25;
+            this.backButton.TabStop = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1132, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(148, 28);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "ShoppingMart";
+            // 
+            // comboCategory
+            // 
+            this.comboCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCategory.FormattingEnabled = true;
+            this.comboCategory.Items.AddRange(new object[] {
+            "",
+            "BISCUIT",
+            "CANNED GOODS",
+            "DAIRY PRODUCTS",
+            "CHIPS",
+            "BEVERAGES"});
+            this.comboCategory.Location = new System.Drawing.Point(716, 24);
+            this.comboCategory.Name = "comboCategory";
+            this.comboCategory.Size = new System.Drawing.Size(237, 28);
+            this.comboCategory.TabIndex = 4;
+            this.comboCategory.TextChanged += new System.EventHandler(this.comboCategory_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(606, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 29);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Category";
+            // 
             // searchBox
             // 
             this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -106,6 +176,7 @@
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(431, 27);
             this.searchBox.TabIndex = 15;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // label9
             // 
@@ -147,34 +218,187 @@
             this.panel2.Size = new System.Drawing.Size(443, 788);
             this.panel2.TabIndex = 3;
             // 
-            // label1
+            // clearButton
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(606, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 29);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Category";
+            this.clearButton.BackColor = System.Drawing.Color.White;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Location = new System.Drawing.Point(277, 562);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(118, 64);
+            this.clearButton.TabIndex = 33;
+            this.clearButton.Text = "CLEAR";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // comboCategory
+            // updateButton
             // 
-            this.comboCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboCategory.FormattingEnabled = true;
-            this.comboCategory.Location = new System.Drawing.Point(716, 24);
-            this.comboCategory.Name = "comboCategory";
-            this.comboCategory.Size = new System.Drawing.Size(237, 28);
-            this.comboCategory.TabIndex = 4;
+            this.updateButton.BackColor = System.Drawing.Color.Teal;
+            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.updateButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateButton.Location = new System.Drawing.Point(277, 492);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(118, 64);
+            this.updateButton.TabIndex = 32;
+            this.updateButton.Text = "UPDATE";
+            this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
-            // label2
+            // deleteButton
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(93, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 40);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Product Detail";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.deleteButton.BackColor = System.Drawing.Color.Red;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.Location = new System.Drawing.Point(153, 562);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(118, 64);
+            this.deleteButton.TabIndex = 31;
+            this.deleteButton.Text = "DELETE";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // newButton
+            // 
+            this.newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(208)))), ((int)(((byte)(66)))));
+            this.newButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newButton.Location = new System.Drawing.Point(29, 492);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(118, 134);
+            this.newButton.TabIndex = 4;
+            this.newButton.Text = "NEW";
+            this.newButton.UseVisualStyleBackColor = false;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.Khaki;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(153, 492);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(118, 64);
+            this.saveButton.TabIndex = 30;
+            this.saveButton.Text = "SAVE";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(188, 410);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(202, 30);
+            this.txtQuantity.TabIndex = 29;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(28, 410);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 29);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Quantity:";
+            // 
+            // txtUnit
+            // 
+            this.txtUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnit.Location = new System.Drawing.Point(188, 362);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(202, 30);
+            this.txtUnit.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(28, 362);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(143, 29);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Unit Price:";
+            // 
+            // combCategory
+            // 
+            this.combCategory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combCategory.FormattingEnabled = true;
+            this.combCategory.Items.AddRange(new object[] {
+            "",
+            "BISCUIT",
+            "CANNED GOODS",
+            "DAIRY PRODUCTS",
+            "CHIPS",
+            "BEVERAGES"});
+            this.combCategory.Location = new System.Drawing.Point(188, 318);
+            this.combCategory.Name = "combCategory";
+            this.combCategory.Size = new System.Drawing.Size(202, 31);
+            this.combCategory.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(28, 316);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 29);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Category:";
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.Location = new System.Drawing.Point(188, 274);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(202, 30);
+            this.txtDiscount.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(28, 271);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 29);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Discount:";
+            // 
+            // txtDes
+            // 
+            this.txtDes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDes.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDes.Location = new System.Drawing.Point(188, 156);
+            this.txtDes.Multiline = true;
+            this.txtDes.Name = "txtDes";
+            this.txtDes.Size = new System.Drawing.Size(202, 103);
+            this.txtDes.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(28, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 29);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Description:";
+            // 
+            // txtUPC
+            // 
+            this.txtUPC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUPC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUPC.Location = new System.Drawing.Point(188, 112);
+            this.txtUPC.Name = "txtUPC";
+            this.txtUPC.Size = new System.Drawing.Size(202, 30);
+            this.txtUPC.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(28, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 29);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "UPC:";
             // 
             // txtID
             // 
@@ -195,228 +419,37 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "ID:";
             // 
-            // txtUPC
+            // label2
             // 
-            this.txtUPC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUPC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUPC.Location = new System.Drawing.Point(188, 112);
-            this.txtUPC.Name = "txtUPC";
-            this.txtUPC.Size = new System.Drawing.Size(202, 30);
-            this.txtUPC.TabIndex = 21;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 29);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "UPC:";
-            // 
-            // txtDes
-            // 
-            this.txtDes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDes.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDes.Location = new System.Drawing.Point(188, 156);
-            this.txtDes.Multiline = true;
-            this.txtDes.Name = "txtDes";
-            this.txtDes.Size = new System.Drawing.Size(202, 103);
-            this.txtDes.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 29);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Description:";
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.Location = new System.Drawing.Point(188, 274);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(202, 30);
-            this.txtDiscount.TabIndex = 25;
-            // 
-            // label6
-            // 
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 271);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 29);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Discount:";
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 316);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 29);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Category:";
-            // 
-            // combCategory
-            // 
-            this.combCategory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combCategory.FormattingEnabled = true;
-            this.combCategory.Location = new System.Drawing.Point(188, 318);
-            this.combCategory.Name = "combCategory";
-            this.combCategory.Size = new System.Drawing.Size(202, 31);
-            this.combCategory.TabIndex = 18;
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUnit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnit.Location = new System.Drawing.Point(188, 362);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(202, 30);
-            this.txtUnit.TabIndex = 27;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(28, 362);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(143, 29);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Unit Price:";
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(188, 410);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(202, 30);
-            this.txtQuantity.TabIndex = 29;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(28, 410);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(119, 29);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Quantity:";
-            // 
-            // newButton
-            // 
-            this.newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(208)))), ((int)(((byte)(66)))));
-            this.newButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.newButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newButton.Location = new System.Drawing.Point(29, 492);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(118, 134);
-            this.newButton.TabIndex = 4;
-            this.newButton.Text = "NEW";
-            this.newButton.UseVisualStyleBackColor = false;
-            // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.Khaki;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(153, 492);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(118, 64);
-            this.saveButton.TabIndex = 30;
-            this.saveButton.Text = "SAVE";
-            this.saveButton.UseVisualStyleBackColor = false;
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.Color.Red;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteButton.Location = new System.Drawing.Point(153, 562);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(118, 64);
-            this.deleteButton.TabIndex = 31;
-            this.deleteButton.Text = "DELETE";
-            this.deleteButton.UseVisualStyleBackColor = false;
-            // 
-            // updateButton
-            // 
-            this.updateButton.BackColor = System.Drawing.Color.Teal;
-            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.updateButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.Location = new System.Drawing.Point(277, 492);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(118, 64);
-            this.updateButton.TabIndex = 32;
-            this.updateButton.Text = "UPDATE";
-            this.updateButton.UseVisualStyleBackColor = false;
-            // 
-            // clearButton
-            // 
-            this.clearButton.BackColor = System.Drawing.Color.White;
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(277, 562);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(118, 64);
-            this.clearButton.TabIndex = 33;
-            this.clearButton.Text = "CLEAR";
-            this.clearButton.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(1081, 19);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 42);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 11;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1132, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(148, 28);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "ShoppingMart";
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(93, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(217, 40);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Product Detail";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // invGrid
             // 
+            this.invGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.invGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.invGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.invGrid.Location = new System.Drawing.Point(35, 100);
             this.invGrid.Name = "invGrid";
+            this.invGrid.RowHeadersVisible = false;
             this.invGrid.RowHeadersWidth = 51;
             this.invGrid.RowTemplate.Height = 24;
             this.invGrid.Size = new System.Drawing.Size(937, 723);
             this.invGrid.TabIndex = 4;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(1357, 41);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 20);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Back";
-            // 
-            // backButton
-            // 
-            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
-            this.backButton.Location = new System.Drawing.Point(1361, 13);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(28, 25);
-            this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.backButton.TabIndex = 25;
-            this.backButton.TabStop = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.invGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.invGrid_CellClick);
             // 
             // Inventory
             // 
@@ -427,16 +460,18 @@
             this.Controls.Add(this.invGrid);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.Inventory_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             this.ResumeLayout(false);
 
         }
