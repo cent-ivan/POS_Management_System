@@ -82,6 +82,12 @@
     <Compile Include="Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="searchProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="searchProduct.Designer.cs">
+      <DependentUpon>searchProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="searchProduct.resx">
+      <DependentUpon>searchProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
