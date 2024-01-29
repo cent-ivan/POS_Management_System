@@ -107,8 +107,8 @@ namespace POS_Management_System
                 {
                     conn.Open();
                     string today = DateTime.Now.ToString("dd-MMM-yyyy, ddd hh:mm tt");
-                    string insertCart = "INSERT INTO cart_tbl(UPC, Description, unitPrice, Quantity, Discount, Subtotal, transDate) VALUES " +
-                        "(@upc, @description, @unitPrice, @quantity, @discount, @subtotal, @today);";
+                    string insertCart = "INSERT INTO cart_tbl(UPC, Description, unitPrice, Quantity, Discount, Subtotal) VALUES " +
+                        "(@upc, @description, @unitPrice, @quantity, @discount, @subtotal);";
                     MySqlCommand cartInsert = new MySqlCommand(insertCart, conn);
                     cartInsert.Parameters.AddWithValue("@upc", txtUPC.Text);
                     cartInsert.Parameters.AddWithValue("@description", txtDes.Text);
@@ -116,7 +116,6 @@ namespace POS_Management_System
                     cartInsert.Parameters.AddWithValue("@quantity", productNum.Value);
                     cartInsert.Parameters.AddWithValue("@discount", txtDiscount.Text);
                     cartInsert.Parameters.AddWithValue("@subtotal", subtotal);
-                    cartInsert.Parameters.AddWithValue("@today", today);
                     int rowsInserted =  cartInsert.ExecuteNonQuery();
 
                     int updatedQty = prodQty -  Convert.ToInt32(productNum.Value);
