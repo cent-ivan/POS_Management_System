@@ -64,6 +64,19 @@ namespace POS_Management_System
             //Create total label
         }//Transaction number generator
 
+        private void dataGridCart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow gridViewRow = dataGridCart.Rows[e.RowIndex];
+                txtUPC.Text = gridViewRow.Cells[1].Value.ToString();
+                txtDes.Text = gridViewRow.Cells[2].Value.ToString();
+                txtUnit.Text = gridViewRow.Cells[3].Value.ToString();
+                txtQuantity.Text = gridViewRow.Cells[4].Value.ToString();
+                txtSubTotal.Text = gridViewRow.Cells[6].Value.ToString();
+            }
+        }//Cell click event for cart_tbl
+
 
         private void transButton_Click(object sender, EventArgs e)
         {
@@ -88,7 +101,7 @@ namespace POS_Management_System
                 LoadTable();
             }
 
-        }//NEW Transaction button
+        }//NEW Transaction button event
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -104,6 +117,14 @@ namespace POS_Management_System
             Discount discountFrm = new Discount();
             discountFrm.ShowDialog();
         }//Discount Button Event
+
+        private void paymentButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Payment pay = new Payment();
+            pay.ShowDialog();
+            Application.Exit();
+        }//Payment Button Event
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -124,6 +145,14 @@ namespace POS_Management_System
                 Application.Exit();
             }
         }//Log Out Button
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            decimal totalPrice = Convert.ToDecimal(totalLabel.Text);
+            int discount = Convert.ToInt32(discountLabel.Text);
+            decimal finalPrice = totalPrice - (totalPrice * discount / 100);
+            finalTotal.Text = Convert.ToString(finalPrice);
+        }//Click the total container for price update
 
         private void POS_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -146,14 +175,7 @@ namespace POS_Management_System
                 //inserting data from the table
                 dataGridCart.DataSource = invtbl;
             }
-        }
+        }//Loads table
 
-        private void panel2_Click(object sender, EventArgs e)
-        {
-            decimal totalPrice = Convert.ToDecimal(totalLabel.Text);
-            int discount = Convert.ToInt32(discountLabel.Text);
-            decimal finalPrice = totalPrice - (totalPrice * discount / 100);
-            finalTotal.Text = Convert.ToString(finalPrice);
-        }
     }
 }

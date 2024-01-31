@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.finalTotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -70,10 +73,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridCart = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.finalTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -87,7 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,6 +118,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(469, 1032);
             this.panel1.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.finalTotal);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(30, 223);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(383, 67);
+            this.panel4.TabIndex = 13;
+            // 
+            // finalTotal
+            // 
+            this.finalTotal.AutoSize = true;
+            this.finalTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.finalTotal.Location = new System.Drawing.Point(228, 5);
+            this.finalTotal.Name = "finalTotal";
+            this.finalTotal.Size = new System.Drawing.Size(35, 41);
+            this.finalTotal.TabIndex = 13;
+            this.finalTotal.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkKhaki;
+            this.label11.Location = new System.Drawing.Point(27, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 31);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Total:";
             // 
             // label10
             // 
@@ -270,6 +302,7 @@
             this.paymentButton.Text = "[F4] Payment";
             this.paymentButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.paymentButton.UseVisualStyleBackColor = false;
+            this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
             // 
             // discountButton
             // 
@@ -576,38 +609,7 @@
             this.dataGridCart.RowTemplate.Height = 24;
             this.dataGridCart.Size = new System.Drawing.Size(951, 600);
             this.dataGridCart.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.finalTotal);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Location = new System.Drawing.Point(30, 223);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(383, 67);
-            this.panel4.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkKhaki;
-            this.label11.Location = new System.Drawing.Point(27, 13);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 31);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Total:";
-            // 
-            // finalTotal
-            // 
-            this.finalTotal.AutoSize = true;
-            this.finalTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalTotal.Location = new System.Drawing.Point(228, 5);
-            this.finalTotal.Name = "finalTotal";
-            this.finalTotal.Size = new System.Drawing.Size(35, 41);
-            this.finalTotal.TabIndex = 13;
-            this.finalTotal.Text = "0";
+            this.dataGridCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCart_CellClick);
             // 
             // POS
             // 
@@ -629,6 +631,8 @@
             this.Load += new System.EventHandler(this.POS_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -644,8 +648,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
