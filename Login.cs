@@ -135,20 +135,10 @@ namespace POS_Management_System
             }
         }//login button event
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            Signup signup = new Signup();
-            signup.ShowDialog();
-            Application.Exit();
-        }//link sign up event
-
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }//formclosing event surely closes components (DO NOT REMOVE)
-
-
 
 
 
