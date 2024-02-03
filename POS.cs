@@ -13,7 +13,7 @@ namespace POS_Management_System
 {
     public partial class POS : Form
     {
-        public static string setValueDiscountPay;
+        public static string discountedTotal;
 
         public POS()
         {
@@ -22,47 +22,62 @@ namespace POS_Management_System
         private void POS_Load(object sender, EventArgs e)
         {
             discountLabel.Text = Discount.setValueDiscount;
-            setValueDiscountPay = discountLabel.Text;
 
             //Sets Transaction ID
             string transCode = DateTime.Now.ToString("yyyy-MM"); //Complete
-            transNumber.Text = transCode;
+            transNumber.Text = transCode + "-1";
 
-            //Compute total price
+            //Check the prices
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
             using (conn)
             {
-                try
-                {
-                    conn.Open();
-                    string getTransactionTotal = "SELECT SUM(Subtotal) FROM cart_tbl;";
-                    MySqlCommand cmd = new MySqlCommand(getTransactionTotal, conn);
-                    totalLabel.Text = cmd.ExecuteScalar().ToString();
+                conn.Open();
+                string Query = "SELECT COUNT(UPC) FROM cart_tbl";
+                MySqlCommand Command = new MySqlCommand(Query, conn);
+                int rowsInserted = Convert.ToInt32(Command.ExecuteScalar().ToString());
+
+                if (rowsInserted >= 1)
+                { 
+                    //Compute total price
+                    using (conn)
+                    {
+                        try
+                        {
+                            string getTransactionTotal = "SELECT SUM(Subtotal) FROM cart_tbl;";
+                            MySqlCommand cmd = new MySqlCommand(getTransactionTotal, conn);
+                            totalLabel.Text = cmd.ExecuteScalar().ToString();
+                        }
+                        catch (NullReferenceException)
+                        {
+                            totalLabel.Text = "0.00";
+                        }
+                    }
                 }
-                catch (NullReferenceException)
+                else
                 {
                     totalLabel.Text = "0.00";
-                }  
+                }
             }
 
             //Computes total price with discount
-            decimal totalPrice = Convert.ToDecimal(totalLabel.Text);
             if (String.IsNullOrEmpty(discountLabel.Text))
             {
+                decimal totalPrice = Convert.ToDecimal(totalLabel.Text);
                 discountLabel.Text = "0";
                 finalTotal.Text = totalLabel.Text;
+                discountedTotal  = finalTotal.Text;
             }
             else
             {
+                decimal totalPrice = Convert.ToDecimal(totalLabel.Text);
                 int discount = Convert.ToInt32(discountLabel.Text);
                 decimal finalPrice = totalPrice - (totalPrice * discount / 100);
                 finalTotal.Text = Convert.ToString(finalPrice);
+                discountedTotal = finalTotal.Text;
             }
 
             LoadTable();
-
-            //Create total label
-        }//Transaction number generator
+        }//On Load event
 
         private void dataGridCart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -94,13 +109,12 @@ namespace POS_Management_System
                     //showing data
                     dataGridCart.DataSource = cartTbl;
                 }
-                totalLabel.Text = "0";
+                totalLabel.Text = "0.00";
                 discountLabel.Text = "0";
-                finalTotal.Text = "0";
+                finalTotal.Text = "0.00";
 
                 LoadTable();
             }
-
         }//NEW Transaction button event
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -159,8 +173,8 @@ namespace POS_Management_System
             System.Windows.Forms.Application.Exit();
         }//formclosing event surely closes components (DO NOT REMOVE)
 
-        //--MySql Methods-------------------------------------------------------------------------
 
+        //--MySql Methods-------------------------------------------------------------------------
         private void LoadTable()
         {
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");

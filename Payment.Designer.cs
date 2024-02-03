@@ -39,20 +39,21 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.one = new System.Windows.Forms.Button();
-            this.three = new System.Windows.Forms.Button();
-            this.two = new System.Windows.Forms.Button();
-            this.zero = new System.Windows.Forms.Button();
-            this.dot = new System.Windows.Forms.Button();
-            this.enter = new System.Windows.Forms.Button();
-            this.four = new System.Windows.Forms.Button();
-            this.five = new System.Windows.Forms.Button();
-            this.six = new System.Windows.Forms.Button();
-            this.seven = new System.Windows.Forms.Button();
-            this.eight = new System.Windows.Forms.Button();
-            this.nine = new System.Windows.Forms.Button();
-            this.thousand = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
+            this.thousand = new System.Windows.Forms.Button();
+            this.nine = new System.Windows.Forms.Button();
+            this.eight = new System.Windows.Forms.Button();
+            this.seven = new System.Windows.Forms.Button();
+            this.six = new System.Windows.Forms.Button();
+            this.five = new System.Windows.Forms.Button();
+            this.four = new System.Windows.Forms.Button();
+            this.enter = new System.Windows.Forms.Button();
+            this.dot = new System.Windows.Forms.Button();
+            this.zero = new System.Windows.Forms.Button();
+            this.two = new System.Windows.Forms.Button();
+            this.three = new System.Windows.Forms.Button();
+            this.one = new System.Windows.Forms.Button();
+            this.Print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +124,7 @@
             // txtChange
             // 
             this.txtChange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChange.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChange.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChange.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.txtChange.Location = new System.Drawing.Point(264, 218);
             this.txtChange.Name = "txtChange";
@@ -141,6 +142,7 @@
             this.txtAmount.TabIndex = 32;
             this.txtAmount.Text = "0";
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label3
             // 
@@ -149,7 +151,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(152, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(253, 46);
+            this.label3.Size = new System.Drawing.Size(246, 45);
             this.label3.TabIndex = 33;
             this.label3.Text = "Enter Amount:";
             // 
@@ -177,160 +179,18 @@
             this.panel1.Size = new System.Drawing.Size(532, 629);
             this.panel1.TabIndex = 34;
             // 
-            // one
+            // clear
             // 
-            this.one.BackColor = System.Drawing.SystemColors.Control;
-            this.one.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.one.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.one.Location = new System.Drawing.Point(46, 397);
-            this.one.Name = "one";
-            this.one.Size = new System.Drawing.Size(108, 93);
-            this.one.TabIndex = 35;
-            this.one.Text = "1";
-            this.one.UseVisualStyleBackColor = false;
-            this.one.Click += new System.EventHandler(this.one_Click);
-            // 
-            // three
-            // 
-            this.three.BackColor = System.Drawing.SystemColors.Control;
-            this.three.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.three.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.three.Location = new System.Drawing.Point(274, 397);
-            this.three.Name = "three";
-            this.three.Size = new System.Drawing.Size(108, 93);
-            this.three.TabIndex = 36;
-            this.three.Text = "3";
-            this.three.UseVisualStyleBackColor = false;
-            this.three.Click += new System.EventHandler(this.three_Click);
-            // 
-            // two
-            // 
-            this.two.BackColor = System.Drawing.SystemColors.Control;
-            this.two.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.two.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.two.Location = new System.Drawing.Point(160, 397);
-            this.two.Name = "two";
-            this.two.Size = new System.Drawing.Size(108, 93);
-            this.two.TabIndex = 37;
-            this.two.Text = "2";
-            this.two.UseVisualStyleBackColor = false;
-            this.two.Click += new System.EventHandler(this.two_Click);
-            // 
-            // zero
-            // 
-            this.zero.BackColor = System.Drawing.SystemColors.Control;
-            this.zero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.zero.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zero.Location = new System.Drawing.Point(46, 496);
-            this.zero.Name = "zero";
-            this.zero.Size = new System.Drawing.Size(108, 93);
-            this.zero.TabIndex = 38;
-            this.zero.Text = "0";
-            this.zero.UseVisualStyleBackColor = false;
-            this.zero.Click += new System.EventHandler(this.zero_Click);
-            // 
-            // dot
-            // 
-            this.dot.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.dot.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dot.Location = new System.Drawing.Point(388, 397);
-            this.dot.Name = "dot";
-            this.dot.Size = new System.Drawing.Size(108, 93);
-            this.dot.TabIndex = 39;
-            this.dot.Text = ".";
-            this.dot.UseVisualStyleBackColor = false;
-            this.dot.Click += new System.EventHandler(this.dot_Click);
-            // 
-            // enter
-            // 
-            this.enter.BackColor = System.Drawing.SystemColors.Info;
-            this.enter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.enter.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enter.Location = new System.Drawing.Point(160, 496);
-            this.enter.Name = "enter";
-            this.enter.Size = new System.Drawing.Size(336, 93);
-            this.enter.TabIndex = 40;
-            this.enter.Text = "Enter";
-            this.enter.UseVisualStyleBackColor = false;
-            // 
-            // four
-            // 
-            this.four.BackColor = System.Drawing.SystemColors.Control;
-            this.four.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.four.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.four.Location = new System.Drawing.Point(46, 298);
-            this.four.Name = "four";
-            this.four.Size = new System.Drawing.Size(108, 93);
-            this.four.TabIndex = 41;
-            this.four.Text = "4";
-            this.four.UseVisualStyleBackColor = false;
-            this.four.Click += new System.EventHandler(this.four_Click);
-            // 
-            // five
-            // 
-            this.five.BackColor = System.Drawing.SystemColors.Control;
-            this.five.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.five.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.five.Location = new System.Drawing.Point(160, 298);
-            this.five.Name = "five";
-            this.five.Size = new System.Drawing.Size(108, 93);
-            this.five.TabIndex = 42;
-            this.five.Text = "5";
-            this.five.UseVisualStyleBackColor = false;
-            this.five.Click += new System.EventHandler(this.five_Click);
-            // 
-            // six
-            // 
-            this.six.BackColor = System.Drawing.SystemColors.Control;
-            this.six.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.six.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.six.Location = new System.Drawing.Point(274, 298);
-            this.six.Name = "six";
-            this.six.Size = new System.Drawing.Size(108, 93);
-            this.six.TabIndex = 43;
-            this.six.Text = "6";
-            this.six.UseVisualStyleBackColor = false;
-            this.six.Click += new System.EventHandler(this.six_Click);
-            // 
-            // seven
-            // 
-            this.seven.BackColor = System.Drawing.SystemColors.Control;
-            this.seven.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.seven.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seven.Location = new System.Drawing.Point(46, 199);
-            this.seven.Name = "seven";
-            this.seven.Size = new System.Drawing.Size(108, 93);
-            this.seven.TabIndex = 44;
-            this.seven.Text = "7";
-            this.seven.UseVisualStyleBackColor = false;
-            this.seven.Click += new System.EventHandler(this.seven_Click);
-            // 
-            // eight
-            // 
-            this.eight.BackColor = System.Drawing.SystemColors.Control;
-            this.eight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.eight.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eight.Location = new System.Drawing.Point(160, 199);
-            this.eight.Name = "eight";
-            this.eight.Size = new System.Drawing.Size(108, 93);
-            this.eight.TabIndex = 45;
-            this.eight.Text = "8";
-            this.eight.UseVisualStyleBackColor = false;
-            this.eight.Click += new System.EventHandler(this.eight_Click);
-            // 
-            // nine
-            // 
-            this.nine.BackColor = System.Drawing.SystemColors.Control;
-            this.nine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.nine.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nine.Location = new System.Drawing.Point(274, 199);
-            this.nine.Name = "nine";
-            this.nine.Size = new System.Drawing.Size(108, 93);
-            this.nine.TabIndex = 46;
-            this.nine.Text = "9";
-            this.nine.UseVisualStyleBackColor = false;
-            this.nine.Click += new System.EventHandler(this.nine_Click);
+            this.clear.BackColor = System.Drawing.Color.LightSalmon;
+            this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clear.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear.Location = new System.Drawing.Point(388, 199);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(108, 93);
+            this.clear.TabIndex = 48;
+            this.clear.Text = "C";
+            this.clear.UseVisualStyleBackColor = false;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // thousand
             // 
@@ -345,18 +205,173 @@
             this.thousand.UseVisualStyleBackColor = false;
             this.thousand.Click += new System.EventHandler(this.thousand_Click);
             // 
-            // clear
+            // nine
             // 
-            this.clear.BackColor = System.Drawing.Color.LightSalmon;
-            this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clear.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clear.Location = new System.Drawing.Point(388, 199);
-            this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(108, 93);
-            this.clear.TabIndex = 48;
-            this.clear.Text = "C";
-            this.clear.UseVisualStyleBackColor = false;
-            this.clear.Click += new System.EventHandler(this.clear_Click);
+            this.nine.BackColor = System.Drawing.SystemColors.Control;
+            this.nine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.nine.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nine.Location = new System.Drawing.Point(274, 199);
+            this.nine.Name = "nine";
+            this.nine.Size = new System.Drawing.Size(108, 93);
+            this.nine.TabIndex = 46;
+            this.nine.Text = "9";
+            this.nine.UseVisualStyleBackColor = false;
+            this.nine.Click += new System.EventHandler(this.nine_Click);
+            // 
+            // eight
+            // 
+            this.eight.BackColor = System.Drawing.SystemColors.Control;
+            this.eight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.eight.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eight.Location = new System.Drawing.Point(160, 199);
+            this.eight.Name = "eight";
+            this.eight.Size = new System.Drawing.Size(108, 93);
+            this.eight.TabIndex = 45;
+            this.eight.Text = "8";
+            this.eight.UseVisualStyleBackColor = false;
+            this.eight.Click += new System.EventHandler(this.eight_Click);
+            // 
+            // seven
+            // 
+            this.seven.BackColor = System.Drawing.SystemColors.Control;
+            this.seven.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.seven.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seven.Location = new System.Drawing.Point(46, 199);
+            this.seven.Name = "seven";
+            this.seven.Size = new System.Drawing.Size(108, 93);
+            this.seven.TabIndex = 44;
+            this.seven.Text = "7";
+            this.seven.UseVisualStyleBackColor = false;
+            this.seven.Click += new System.EventHandler(this.seven_Click);
+            // 
+            // six
+            // 
+            this.six.BackColor = System.Drawing.SystemColors.Control;
+            this.six.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.six.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.six.Location = new System.Drawing.Point(274, 298);
+            this.six.Name = "six";
+            this.six.Size = new System.Drawing.Size(108, 93);
+            this.six.TabIndex = 43;
+            this.six.Text = "6";
+            this.six.UseVisualStyleBackColor = false;
+            this.six.Click += new System.EventHandler(this.six_Click);
+            // 
+            // five
+            // 
+            this.five.BackColor = System.Drawing.SystemColors.Control;
+            this.five.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.five.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.five.Location = new System.Drawing.Point(160, 298);
+            this.five.Name = "five";
+            this.five.Size = new System.Drawing.Size(108, 93);
+            this.five.TabIndex = 42;
+            this.five.Text = "5";
+            this.five.UseVisualStyleBackColor = false;
+            this.five.Click += new System.EventHandler(this.five_Click);
+            // 
+            // four
+            // 
+            this.four.BackColor = System.Drawing.SystemColors.Control;
+            this.four.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.four.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.four.Location = new System.Drawing.Point(46, 298);
+            this.four.Name = "four";
+            this.four.Size = new System.Drawing.Size(108, 93);
+            this.four.TabIndex = 41;
+            this.four.Text = "4";
+            this.four.UseVisualStyleBackColor = false;
+            this.four.Click += new System.EventHandler(this.four_Click);
+            // 
+            // enter
+            // 
+            this.enter.BackColor = System.Drawing.SystemColors.Info;
+            this.enter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.enter.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enter.Location = new System.Drawing.Point(160, 496);
+            this.enter.Name = "enter";
+            this.enter.Size = new System.Drawing.Size(336, 93);
+            this.enter.TabIndex = 40;
+            this.enter.Text = "Enter";
+            this.enter.UseVisualStyleBackColor = false;
+            this.enter.Click += new System.EventHandler(this.enter_Click);
+            // 
+            // dot
+            // 
+            this.dot.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dot.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.dot.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dot.Location = new System.Drawing.Point(388, 397);
+            this.dot.Name = "dot";
+            this.dot.Size = new System.Drawing.Size(108, 93);
+            this.dot.TabIndex = 39;
+            this.dot.Text = ".";
+            this.dot.UseVisualStyleBackColor = false;
+            this.dot.Click += new System.EventHandler(this.dot_Click);
+            // 
+            // zero
+            // 
+            this.zero.BackColor = System.Drawing.SystemColors.Control;
+            this.zero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zero.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zero.Location = new System.Drawing.Point(46, 496);
+            this.zero.Name = "zero";
+            this.zero.Size = new System.Drawing.Size(108, 93);
+            this.zero.TabIndex = 38;
+            this.zero.Text = "0";
+            this.zero.UseVisualStyleBackColor = false;
+            this.zero.Click += new System.EventHandler(this.zero_Click);
+            // 
+            // two
+            // 
+            this.two.BackColor = System.Drawing.SystemColors.Control;
+            this.two.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.two.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.two.Location = new System.Drawing.Point(160, 397);
+            this.two.Name = "two";
+            this.two.Size = new System.Drawing.Size(108, 93);
+            this.two.TabIndex = 37;
+            this.two.Text = "2";
+            this.two.UseVisualStyleBackColor = false;
+            this.two.Click += new System.EventHandler(this.two_Click);
+            // 
+            // three
+            // 
+            this.three.BackColor = System.Drawing.SystemColors.Control;
+            this.three.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.three.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.three.Location = new System.Drawing.Point(274, 397);
+            this.three.Name = "three";
+            this.three.Size = new System.Drawing.Size(108, 93);
+            this.three.TabIndex = 36;
+            this.three.Text = "3";
+            this.three.UseVisualStyleBackColor = false;
+            this.three.Click += new System.EventHandler(this.three_Click);
+            // 
+            // one
+            // 
+            this.one.BackColor = System.Drawing.SystemColors.Control;
+            this.one.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.one.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.one.Location = new System.Drawing.Point(46, 397);
+            this.one.Name = "one";
+            this.one.Size = new System.Drawing.Size(108, 93);
+            this.one.TabIndex = 35;
+            this.one.Text = "1";
+            this.one.UseVisualStyleBackColor = false;
+            this.one.Click += new System.EventHandler(this.one_Click);
+            // 
+            // Print
+            // 
+            this.Print.BackColor = System.Drawing.Color.Khaki;
+            this.Print.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Print.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Print.Location = new System.Drawing.Point(40, 723);
+            this.Print.Name = "Print";
+            this.Print.Size = new System.Drawing.Size(163, 48);
+            this.Print.TabIndex = 35;
+            this.Print.Text = "Print Receipt";
+            this.Print.UseVisualStyleBackColor = false;
             // 
             // Payment
             // 
@@ -365,6 +380,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1364, 810);
             this.ControlBox = false;
+            this.Controls.Add(this.Print);
             this.Controls.Add(this.txtChange);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -411,5 +427,6 @@
         private System.Windows.Forms.Button one;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button thousand;
+        private System.Windows.Forms.Button Print;
     }
 }
