@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -22,8 +23,27 @@ namespace POS_Management_System
 
         private void Payment_Load(object sender, EventArgs e)
         {
-          
+            //Computes the total
+            txtTotal.Text = POS.discountedTotal;
+
         }//On load event
+
+        private void enter_Click(object sender, EventArgs e)
+        {
+            decimal total = Convert.ToDecimal(txtTotal.Text);
+            decimal change = Convert.ToDecimal(txtAmount.Text) - total;
+            txtChange.Text = change.ToString();
+        }//Enter to view change
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                decimal total = Convert.ToDecimal(txtTotal.Text);
+                decimal change = Convert.ToDecimal(txtAmount.Text) - total;
+                txtChange.Text = change.ToString();
+            }
+        }//if enter key pressed
 
         private void backButton_Click(object sender, EventArgs e)
         {
