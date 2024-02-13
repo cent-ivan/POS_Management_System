@@ -140,6 +140,18 @@ namespace POS_Management_System
             Application.Exit();
         }//Payment Button Event
 
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridCart.Rows.Count >= 1)
+            {
+                ClearItems();
+            }
+            else
+            {
+                MessageBox.Show("Put something in the cart first.", "Notice");
+            }  
+        }//Clear Button
+
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -174,6 +186,7 @@ namespace POS_Management_System
         }//formclosing event surely closes components (DO NOT REMOVE)
 
 
+
         //--MySql Methods-------------------------------------------------------------------------
         private void LoadTable()
         {
@@ -190,6 +203,58 @@ namespace POS_Management_System
                 dataGridCart.DataSource = invtbl;
             }
         }//Loads table
+
+        private void ClearItems()
+        {
+            DialogResult result = MessageBox.Show("Clear Cart?", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+                using (conn)
+                {
+                    conn.Open();
+                    //Creating a temp data table for the retrieval of UPC and Quantity of item in cart
+                    var dataTbl1 = new DataTable();
+                    dataTbl1.Load(new MySqlCommand("SELECT UPC, Quantity FROM cart_tbl;", conn).ExecuteReader());
+
+                    //Creating a temp data table for the retrieval of UPC and Quantity of item in cart
+                    var dataTbl2 = new DataTable();
+                    dataTbl2.Load(new MySqlCommand("SELECT Quantity FROM inventory_tbl;", conn).ExecuteReader());
+
+                    foreach (var row1 in dataTbl1.AsEnumerable())
+                    {
+                        string itemUPC = row1["UPC"].ToString();
+                        int cartQty = Convert.ToInt32(row1["Quantity"]);
+
+                        //Gets the total qty left in the inventory of said item
+                        string Query = $"SELECT Quantity FROM inventory_tbl WHERE UPC = {itemUPC}";
+                        MySqlCommand cmd = new MySqlCommand(Query, conn);
+                        int invQty = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+
+                        int restoreQty = cartQty + invQty;;
+                        string updateQry = "UPDATE inventory_tbl SET Quantity = @qty WHERE UPC = @upc";
+                        var updateInv = new MySqlCommand(updateQry, conn);
+                        updateInv.Parameters.AddWithValue("@upc", itemUPC);
+                        updateInv.Parameters.AddWithValue("@qty", restoreQty);
+                        updateInv.ExecuteNonQuery();
+                    }
+
+                    //Clears the cart
+                    MySqlDataAdapter mySqlAdapter = new MySqlDataAdapter("TRUNCATE TABLE cart_tbl;", conn);
+                    DataTable cartTbl = new DataTable();
+                    mySqlAdapter.Fill(cartTbl);
+
+                    //showing data
+                    dataGridCart.DataSource = cartTbl;
+                }
+
+                totalLabel.Text = "0.00";
+                discountLabel.Text = "0";
+                finalTotal.Text = "0.00";
+
+                LoadTable();
+            }
+        } //Clear Item method
 
     }
 }

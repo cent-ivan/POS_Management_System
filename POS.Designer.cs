@@ -289,6 +289,7 @@
             this.clearButton.Text = "[F5 ]Clear Cart";
             this.clearButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // paymentButton
             // 
