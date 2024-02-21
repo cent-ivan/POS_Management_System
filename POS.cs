@@ -231,7 +231,7 @@ namespace POS_Management_System
                         MySqlCommand cmd = new MySqlCommand(Query, conn);
                         int invQty = Convert.ToInt32(cmd.ExecuteScalar().ToString());
 
-                        int restoreQty = cartQty + invQty;;
+                        int restoreQty = cartQty + invQty;
                         string updateQry = "UPDATE inventory_tbl SET Quantity = @qty WHERE UPC = @upc";
                         var updateInv = new MySqlCommand(updateQry, conn);
                         updateInv.Parameters.AddWithValue("@upc", itemUPC);
