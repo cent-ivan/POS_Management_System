@@ -116,11 +116,30 @@ namespace POS_Management_System
 
                         if (reader.Read())
                         {
-                            MessageBox.Show("Login Successfully!");
-                            this.Hide();
-                            Dashboard dsh = new Dashboard();
-                            dsh.ShowDialog();
-                            Application.Exit();
+                            reader.Close();
+                            //Checking employee role
+                            string checkRole = "SELECT empRole FROM profile_tbl WHERE storeID = @idNo AND password = @password;";
+                            MySqlCommand comm = new MySqlCommand(checkRole, conn);
+                            comm.Parameters.AddWithValue("@idNo", idNo.Text);
+                            comm.Parameters.AddWithValue("@password", password.Text);
+                            string result = comm.ExecuteScalar().ToString();
+
+                            if (result.Equals("ADMIN"))
+                            {
+                                MessageBox.Show("Login Successfully!");
+                                this.Hide();
+                                Dashboard dsh = new Dashboard();
+                                dsh.ShowDialog();
+                                Application.Exit();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Login Successfully!");
+                                this.Hide();
+                                POS pos = new POS();
+                                pos.ShowDialog();
+                                Application.Exit();
+                            }
                         }
                         else
                         {
@@ -131,7 +150,7 @@ namespace POS_Management_System
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show($"Error [{ex.Number}] \nCheck all of the form for empty entry.", "Notice");
+                MessageBox.Show($"Error [{ex}] \nCheck all of the form for empty entry.", "Notice");
             }
         }//login button event
 
