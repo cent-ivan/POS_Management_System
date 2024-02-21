@@ -17,6 +17,27 @@ namespace POS_Management_System
             InitializeComponent();
         }
 
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+            using (conn)
+            {
+                conn.Open();
+                string TotalInvQuery = "SELECT COUNT(invID) FROM inventory_tbl";
+                MySqlCommand Command1 = new MySqlCommand(TotalInvQuery, conn);
+                string result = Command1.ExecuteScalar().ToString();
+
+                totalInvLabel.Text = result;
+
+                string TotalUserQuery = "SELECT COUNT(profID) FROM profile_tbl";
+                MySqlCommand Command2 = new MySqlCommand(TotalUserQuery, conn);
+                string userResult = Command2.ExecuteScalar().ToString();
+
+                totalUser.Text = userResult;
+            }
+        }//On load event
+
+
         private void posButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -41,6 +62,13 @@ namespace POS_Management_System
             //Application.Exit();
         }//Report Button
 
+        private void signinButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Signup signup = new Signup();
+            signup.ShowDialog();
+            Application.Exit();
+        }//Adding a user
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
@@ -59,5 +87,6 @@ namespace POS_Management_System
             System.Windows.Forms.Application.Exit();
         }//formclosing event surely closes components (DO NOT REMOVE)
 
+        
     }
 }
