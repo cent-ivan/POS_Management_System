@@ -10,6 +10,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace POS_Management_System
 {
@@ -35,6 +37,16 @@ namespace POS_Management_System
             txtChange.Text = change.ToString();
         }//Enter to view change
 
+        private void Print_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show($"Confirm Transaction?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                InsertSale();
+            }  
+        }//Insert data to sales and print receipt
+
+
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -45,6 +57,7 @@ namespace POS_Management_System
             }
         }//if enter key pressed
 
+
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -52,6 +65,7 @@ namespace POS_Management_System
             pos.ShowDialog();
             Application.Exit();
         }//Back button
+
 
         //Calculator---------------------------------------------------------------------------------------------------
         private void zero_Click(object sender, EventArgs e)
@@ -213,6 +227,34 @@ namespace POS_Management_System
         private void clear_Click(object sender, EventArgs e)
         {
             txtAmount.Text = "0";
+        }
+
+
+        //---SQL Methods--------------------------------------------------------------------------------------
+        private void InsertSale()
+        {
+            string date_now = DateTime.Now.ToString("yyyy-MM-dd");
+            string time = DateTime.Now.ToString("hh:mm tt");
+
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+            using (conn)
+            {
+                conn.Open();
+                string itemsQuery = $"SELECT SUM(Quantity) FROM cart_tbl";
+                MySqlCommand cmd = new MySqlCommand(itemsQuery, conn);
+                string total_sold = cmd.ExecuteScalar().ToString();
+
+                string salesProduct = "INSERT INTO sales_tbl(Amount, Sale_Date, Sale_Time, Items_Sold) VALUES " +
+                    "(@amount, @today, @time, @items_sold);";
+                MySqlCommand insertSales = new MySqlCommand(salesProduct, conn);
+                insertSales.Parameters.AddWithValue("@amount", txtTotal.Text);
+                insertSales.Parameters.AddWithValue("@today", date_now);
+                insertSales.Parameters.AddWithValue("@time", time);
+                insertSales.Parameters.AddWithValue("@items_sold", total_sold);
+
+                int rowsInserted = insertSales.ExecuteNonQuery();
+                MessageBox.Show("Transaction Recorded", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
     }
