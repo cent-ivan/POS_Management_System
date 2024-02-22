@@ -372,6 +372,7 @@
             this.Print.TabIndex = 35;
             this.Print.Text = "Print Receipt";
             this.Print.UseVisualStyleBackColor = false;
+            this.Print.Click += new System.EventHandler(this.Print_Click);
             // 
             // Payment
             // 

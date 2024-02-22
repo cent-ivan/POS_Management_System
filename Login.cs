@@ -65,6 +65,11 @@ namespace POS_Management_System
                         MySqlCommand profINDEX = new MySqlCommand( profINDEXQry, conn);
                         rowsInserted = profINDEX.ExecuteNonQuery();
 
+                        string sampleProfQry = "INSERT INTO profile_tbl(storeID, empName, empSex, empRole, empEmail, password) VALUES " +
+                            "(214168, 'John Doe', 'MALE', 'ADMIN', 'sample@gmail.com', '12345');";
+                        MySqlCommand sampleQry = new MySqlCommand(sampleProfQry, conn);
+                        rowsInserted = sampleQry.ExecuteNonQuery(); //Insert sample profile
+
                         string invTBLQry = "CREATE TABLE inventory_tbl(invID INT AUTO_INCREMENT PRIMARY KEY, UPC VARCHAR(20) NOT NULL, " +
                         "Description VARCHAR(100) NOT NULL, Discount INT NOT NULL, Category VARCHAR(50) NOT NULL, unitPrice DECIMAL(18,2" +
                         ") NOT NULL, Quantity INT NOT NULL);";
@@ -77,16 +82,13 @@ namespace POS_Management_System
                         rowsInserted = cartTBL.ExecuteNonQuery(); //For the Cart table
 
                         string saleTBLQry = "CREATE TABLE sales_tbl(transID INT AUTO_INCREMENT PRIMARY KEY, Amount DECIMAL(18,2) NOT NULL, " +
-                        "Sale_Date VARCHAR(50) NOT NULL, Items_Sold INT NOT NULL);";
+                        "Sale_Date VARCHAR(50) NOT NULL, Sale_Time VARCHAR(50) NOT NULL, Items_Sold INT NOT NULL);";
                         MySqlCommand saleTBL = new MySqlCommand(saleTBLQry, conn);
                         rowsInserted = saleTBL.ExecuteNonQuery(); //For the Sale table
 
                     }//connection for creating table 
                 }
-                else
-                {
-                    MessageBox.Show("Database already existed");
-                }
+                
             }
                 
             RotateImages(pictureBox1, pictureBox2, pictureBox3, pictureBox4); //rotates the images passed

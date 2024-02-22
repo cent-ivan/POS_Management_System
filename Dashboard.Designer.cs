@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.logoutButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.signinButton = new System.Windows.Forms.Button();
             this.reportButton = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.invButton = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.signinButton = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.roundPanel4 = new POS_Management_System.RoundPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.totalUser = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.roundPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.roundPanel3.SuspendLayout();
@@ -91,6 +93,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.signinButton);
             this.panel1.Controls.Add(this.reportButton);
             this.panel1.Controls.Add(this.pictureBox4);
@@ -106,6 +109,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 862);
             this.panel1.TabIndex = 1;
+            // 
+            // signinButton
+            // 
+            this.signinButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.signinButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.signinButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signinButton.Location = new System.Drawing.Point(121, 548);
+            this.signinButton.Name = "signinButton";
+            this.signinButton.Size = new System.Drawing.Size(284, 76);
+            this.signinButton.TabIndex = 15;
+            this.signinButton.Text = "Add User";
+            this.signinButton.UseVisualStyleBackColor = false;
+            this.signinButton.Click += new System.EventHandler(this.signinButton_Click);
             // 
             // reportButton
             // 
@@ -226,18 +242,15 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "ShoppingMart";
             // 
-            // signinButton
+            // pictureBox10
             // 
-            this.signinButton.BackColor = System.Drawing.Color.CadetBlue;
-            this.signinButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.signinButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signinButton.Location = new System.Drawing.Point(121, 548);
-            this.signinButton.Name = "signinButton";
-            this.signinButton.Size = new System.Drawing.Size(284, 76);
-            this.signinButton.TabIndex = 15;
-            this.signinButton.Text = "Add User";
-            this.signinButton.UseVisualStyleBackColor = false;
-            this.signinButton.Click += new System.EventHandler(this.signinButton_Click);
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(34, 548);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(81, 76);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 16;
+            this.pictureBox10.TabStop = false;
             // 
             // roundPanel4
             // 
@@ -391,7 +404,7 @@
             // 
             this.totalSaleLabel.AutoSize = true;
             this.totalSaleLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalSaleLabel.Location = new System.Drawing.Point(290, 103);
+            this.totalSaleLabel.Location = new System.Drawing.Point(203, 102);
             this.totalSaleLabel.Name = "totalSaleLabel";
             this.totalSaleLabel.Size = new System.Drawing.Size(43, 50);
             this.totalSaleLabel.TabIndex = 15;
@@ -434,6 +447,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.roundPanel4.ResumeLayout(false);
             this.roundPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -483,5 +497,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label totalUser;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }

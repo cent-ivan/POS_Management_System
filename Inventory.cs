@@ -82,6 +82,7 @@ namespace POS_Management_System
             if (result == DialogResult.Yes)
             {
                 DeleteProduct();
+                LoadTable();
             }
         }//DELETE Button
 
@@ -248,9 +249,9 @@ namespace POS_Management_System
             using (conn)
             {
                 conn.Open();
-                string deleteProduct = "UPDATE inventory_tbl SET UPC = @upc, Description = @description, Discount =  @discount, " +
-                    "Category = @category, unitPrice = @unitPrice, Quantity = @quantity WHERE invID = @invID";
+                string deleteProduct = "DELETE FROM inventory_tbl WHERE invID = @invID";
                 MySqlCommand deleteInv = new MySqlCommand(deleteProduct, conn);
+                deleteInv.Parameters.AddWithValue("invID", txtID.Text);
                 rowsInserted = deleteInv.ExecuteNonQuery();
                 MessageBox.Show("Product Deleted", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
