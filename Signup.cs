@@ -27,8 +27,8 @@ namespace POS_Management_System
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
+            Dashboard dsh = new Dashboard();
+            dsh.ShowDialog();
             Application.Exit();
         }//back button click
 
