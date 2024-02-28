@@ -77,11 +77,16 @@ namespace POS_Management_System
                         rowsInserted = invTBL.ExecuteNonQuery(); //For the Inventory Table
 
                         string cartTBLQry = "CREATE TABLE cart_tbl(cartID INT AUTO_INCREMENT PRIMARY KEY, UPC VARCHAR(20) NOT NULL, Description VARCHAR(100) NOT NULL, " +
-                        "unitPrice DECIMAL(18,2) NOT NULL, Quantity INT NOT NULL, Discount INT NOT NULL, Subtotal DECIMAL(18,2) NOT NULL, transDate VARCHAR(60) NOT NULL);";
+                        "unitPrice DECIMAL(18,2) NOT NULL, Quantity INT NOT NULL, Discount INT NOT NULL, Subtotal DECIMAL(18,2) NOT NULL, transDate VARCHAR(60) NOT NULL, transID INT NOT NULL);";
                         MySqlCommand cartTBL = new MySqlCommand(cartTBLQry, conn);
                         rowsInserted = cartTBL.ExecuteNonQuery(); //For the Cart table
 
-                        string saleTBLQry = "CREATE TABLE sales_tbl(transID INT AUTO_INCREMENT PRIMARY KEY, Amount DECIMAL(18,2) NOT NULL, " +
+                        string transTBLQry = "CREATE TABLE trans_tbl(cartID INT AUTO_INCREMENT PRIMARY KEY, UPC VARCHAR(20) NOT NULL, Description VARCHAR(100) NOT NULL, " +
+                        "unitPrice DECIMAL(18,2) NOT NULL, Quantity INT NOT NULL, Discount INT NOT NULL, Subtotal DECIMAL(18,2) NOT NULL, transDate VARCHAR(60) NOT NULL, transID INT NOT NULL);";
+                        MySqlCommand transTBL = new MySqlCommand(transTBLQry, conn);
+                        rowsInserted = transTBL.ExecuteNonQuery(); //For the Transaction
+
+                        string saleTBLQry = "CREATE TABLE sales_tbl(transID INT NOT NULL, Amount DECIMAL(18,2) NOT NULL, " +
                         "Sale_Date VARCHAR(50) NOT NULL, Sale_Time VARCHAR(50) NOT NULL, Items_Sold INT NOT NULL);";
                         MySqlCommand saleTBL = new MySqlCommand(saleTBLQry, conn);
                         rowsInserted = saleTBL.ExecuteNonQuery(); //For the Sale table
