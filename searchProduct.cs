@@ -25,6 +25,7 @@ namespace POS_Management_System
         private void searchProduct_Load(object sender, EventArgs e)
         {
             LoadTable();
+            transId.Text = POS.TransId;
         }//On load events
 
         private void invGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -107,8 +108,8 @@ namespace POS_Management_System
                 {
                     conn.Open();
                     string today = DateTime.Now.ToString("dd-MMM-yyyy, ddd hh:mm tt");
-                    string insertCart = "INSERT INTO cart_tbl(UPC, Description, unitPrice, Quantity, Discount, Subtotal) VALUES " +
-                        "(@upc, @description, @unitPrice, @quantity, @discount, @subtotal);";
+                    string insertCart = "INSERT INTO cart_tbl(UPC, Description, unitPrice, Quantity, Discount, Subtotal, transID) VALUES " +
+                        "(@upc, @description, @unitPrice, @quantity, @discount, @subtotal, @transid);";
                     MySqlCommand cartInsert = new MySqlCommand(insertCart, conn);
                     cartInsert.Parameters.AddWithValue("@upc", txtUPC.Text);
                     cartInsert.Parameters.AddWithValue("@description", txtDes.Text);
@@ -116,6 +117,7 @@ namespace POS_Management_System
                     cartInsert.Parameters.AddWithValue("@quantity", productNum.Value);
                     cartInsert.Parameters.AddWithValue("@discount", txtDiscount.Text);
                     cartInsert.Parameters.AddWithValue("@subtotal", subtotal);
+                    cartInsert.Parameters.AddWithValue("@transid", transId.Text);
                     int rowsInserted =  cartInsert.ExecuteNonQuery();
 
                     int updatedQty = prodQty -  Convert.ToInt32(productNum.Value);
@@ -125,6 +127,7 @@ namespace POS_Management_System
                     updateInv.Parameters.AddWithValue("@cartid", txtID.Text);
                     rowsInserted = updateInv.ExecuteNonQuery();
 
+                    InsertTrans();
                     LoadTable();
                 }
             }
@@ -161,5 +164,34 @@ namespace POS_Management_System
 
         }//Loads or refreshes the table
 
+        private void InsertTrans()
+        {
+            if (discount == 0)
+            {
+                subtotal = unitPrice * Convert.ToInt32(productNum.Value);
+            }
+            else
+            {
+                decimal discountTotal = unitPrice - (unitPrice * (discount / 100));
+                subtotal = discountTotal * Convert.ToInt32(productNum.Value);
+            }
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
+            using (conn)
+            {
+                conn.Open();
+                string today = DateTime.Now.ToString("dd-MMM-yyyy, ddd hh:mm tt");
+                string insertCart = "INSERT INTO trans_tbl(UPC, Description, unitPrice, Quantity, Discount, Subtotal, transID) VALUES " +
+                    "(@upc, @description, @unitPrice, @quantity, @discount, @subtotal, @transid);";
+                MySqlCommand cartInsert = new MySqlCommand(insertCart, conn);
+                cartInsert.Parameters.AddWithValue("@upc", txtUPC.Text);
+                cartInsert.Parameters.AddWithValue("@description", txtDes.Text);
+                cartInsert.Parameters.AddWithValue("@unitPrice", txtUnit.Text);
+                cartInsert.Parameters.AddWithValue("@quantity", productNum.Value);
+                cartInsert.Parameters.AddWithValue("@discount", txtDiscount.Text);
+                cartInsert.Parameters.AddWithValue("@subtotal", subtotal);
+                cartInsert.Parameters.AddWithValue("@transid", transId.Text);
+                int rowsInserted = cartInsert.ExecuteNonQuery();
+            }
+        }
     }
 }

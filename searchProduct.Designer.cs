@@ -48,6 +48,8 @@
             this.invGrid = new System.Windows.Forms.DataGridView();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.transId = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productNum)).BeginInit();
@@ -81,6 +83,8 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.transId);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.addCartButton);
             this.panel2.Controls.Add(this.productNum);
             this.panel2.Controls.Add(this.label10);
@@ -265,6 +269,25 @@
             this.label2.TabIndex = 30;
             this.label2.Text = "Search";
             // 
+            // transId
+            // 
+            this.transId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.transId.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transId.Location = new System.Drawing.Point(195, 10);
+            this.transId.Name = "transId";
+            this.transId.ReadOnly = true;
+            this.transId.Size = new System.Drawing.Size(128, 30);
+            this.transId.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(189, 29);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Transaction Number:";
+            // 
             // searchProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,5 +335,7 @@
         private System.Windows.Forms.Button addCartButton;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox transId;
+        private System.Windows.Forms.Label label7;
     }
 }

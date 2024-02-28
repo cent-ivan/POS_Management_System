@@ -244,9 +244,10 @@ namespace POS_Management_System
                 MySqlCommand cmd = new MySqlCommand(itemsQuery, conn);
                 string total_sold = cmd.ExecuteScalar().ToString();
 
-                string salesProduct = "INSERT INTO sales_tbl(Amount, Sale_Date, Sale_Time, Items_Sold) VALUES " +
-                    "(@amount, @today, @time, @items_sold);";
+                string salesProduct = "INSERT INTO sales_tbl(transID, Amount, Sale_Date, Sale_Time, Items_Sold) VALUES " +
+                    "(@transid, @amount, @today, @time, @items_sold);";
                 MySqlCommand insertSales = new MySqlCommand(salesProduct, conn);
+                insertSales.Parameters.AddWithValue("@transid", POS.TransId);
                 insertSales.Parameters.AddWithValue("@amount", txtTotal.Text);
                 insertSales.Parameters.AddWithValue("@today", date_now);
                 insertSales.Parameters.AddWithValue("@time", time);
