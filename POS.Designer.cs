@@ -59,7 +59,7 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.transNumber = new System.Windows.Forms.Label();
+            this.transId = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
@@ -112,7 +112,7 @@
             this.panel1.Controls.Add(this.transButton);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.transNumber);
+            this.panel1.Controls.Add(this.transId);
             this.panel1.Controls.Add(this.logoutButton);
             this.panel1.Location = new System.Drawing.Point(985, -1);
             this.panel1.Name = "panel1";
@@ -457,15 +457,15 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Transaction No.";
             // 
-            // transNumber
+            // transId
             // 
-            this.transNumber.AutoSize = true;
-            this.transNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transNumber.Location = new System.Drawing.Point(271, 26);
-            this.transNumber.Name = "transNumber";
-            this.transNumber.Size = new System.Drawing.Size(55, 23);
-            this.transNumber.TabIndex = 3;
-            this.transNumber.Text = "label1";
+            this.transId.AutoSize = true;
+            this.transId.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transId.Location = new System.Drawing.Point(280, 18);
+            this.transId.Name = "transId";
+            this.transId.Size = new System.Drawing.Size(55, 23);
+            this.transId.TabIndex = 3;
+            this.transId.Text = "label1";
             // 
             // logoutButton
             // 
@@ -658,7 +658,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label transNumber;
+        private System.Windows.Forms.Label transId;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label label2;

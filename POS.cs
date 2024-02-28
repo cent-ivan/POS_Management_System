@@ -14,6 +14,7 @@ namespace POS_Management_System
     public partial class POS : Form
     {
         public static string discountedTotal;
+        public static string TransId;
 
         public POS()
         {
@@ -23,15 +24,28 @@ namespace POS_Management_System
         {
             discountLabel.Text = Discount.setValueDiscount;
 
-            //Sets Transaction ID
-            string transCode = DateTime.Now.ToString("yyyy-MM"); //Complete
-            transNumber.Text = transCode + "-1";
-
             //Check the prices
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=pos_system_db");
             using (conn)
             {
                 conn.Open();
+                //Sets Transaction ID
+
+                int rows = 1;
+
+                string transQuery = "SELECT * FROM sales_tbl;";
+                MySqlCommand cmd1 = new MySqlCommand(transQuery, conn);
+                MySqlDataReader reader = cmd1.ExecuteReader();
+                while (reader.Read()) //counts each rows shown by the query
+                {
+                    rows++;
+                }
+
+                string transCode = DateTime.Now.ToString("yy"+ "MM" +"dd"); //Complete
+                transId.Text = transCode + $"{rows}";
+                TransId = transId.Text;
+                reader.Close();
+
                 string Query = "SELECT COUNT(UPC) FROM cart_tbl";
                 MySqlCommand Command = new MySqlCommand(Query, conn);
                 int rowsInserted = Convert.ToInt32(Command.ExecuteScalar().ToString());
